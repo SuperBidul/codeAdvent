@@ -30,6 +30,10 @@ public class Exercice1 {
         int distance = exercice.calculeDistance();
 
         System.out.println("La distance est : " + distance);
+
+        int similarite = exercice.calculeSimilarite();
+
+        System.out.println("La similarité est : " + similarite);
     }
 
     public void chargeListe (String nomFichier){
@@ -70,6 +74,14 @@ public class Exercice1 {
             } else {
                 somme += liste2.get(i) - liste1.get(i);
             }
+        }
+        return somme;
+    }
+
+    public int calculeSimilarite(){
+        int somme = 0;
+        for (int i = 0; i < liste1.size(); i++) {
+            somme += liste1.get(i) * Collections.frequency(liste2, liste1.get(i));
         }
         return somme;
     }
